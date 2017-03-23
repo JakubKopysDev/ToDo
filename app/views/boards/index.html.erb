@@ -1,0 +1,8 @@
+<div class="container">
+  <div class="col-sm-6 col-sm-offset-3">
+    <%= render 'boards/form_panel', board: @board, action: get_boards_action %>
+    <% @boards.each do |board| %>
+      <%= render board %>
+    <% end %>
+  </div>
+</div>

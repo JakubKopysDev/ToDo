@@ -1,0 +1,6 @@
+<div class="container">
+  <div class="col-sm-6 col-sm-offset-3">
+    <h4>Edit Board</h4>
+    <%= render 'boards/form_panel', board: @board, action: get_boards_action(id: @board.id) %>
+  </div>
+</div>

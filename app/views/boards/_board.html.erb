@@ -1,0 +1,12 @@
+<div class="board panel panel-default">
+  <div class="panel-heading">
+    <%= board.name %>
+  </div>
+  <div class="panel-body">
+    <%= board.desc %>
+  </div>
+  <div class="panel-footer">
+    <%= link_to 'Edit', edit_board_path(board.id) %>
+    <%= link_to 'Delete', board_path(board.id), class: 'danger', method: 'DELETE' %>
+  </div>
+</div>

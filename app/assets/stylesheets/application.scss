@@ -13,3 +13,23 @@
  */
 @import "bootstrap-sprockets";
 @import "bootstrap";
+
+
+a.danger {
+  color: #d74338;
+}
+
+.has-board-error {
+  .board-error {
+    background: transparent;
+    color: #d74338;
+    border: none;
+    margin-left: 5px;
+  }
+
+  input, select, textarea {
+    //background-color: #d74338;
+    border-color: #d74338;
+    font-weight: 500;
+  }
+}

@@ -6,6 +6,7 @@ class User < ApplicationRecord
          :authentication_keys => [:login]
   has_many :boards
   attr_accessor :login
+  validates :name, length: {in: 4..25}
 
   # overwrite Devise authentication - allow login using email or name
   def self.find_for_database_authentication(warden_conditions)
