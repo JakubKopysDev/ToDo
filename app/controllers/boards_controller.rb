@@ -1,5 +1,5 @@
 class BoardsController < ApplicationController
-  before_action :find_board, only: [:edit, :destroy]
+  before_action :find_board, only: [:edit, :destroy, :update]
 
   def index
     @board = current_user.boards.new
@@ -7,15 +7,14 @@ class BoardsController < ApplicationController
   end
 
   def create
-    @board = current_user.boards.new board_params
+    @board = current_user.boards.new(board_params)
     if @board.valid?
       @board.save
       redirect_to boards_path
     else
-      #TODO: display error msg and redirect
       # render json: [error: "Invalid board: #{@board.errors.messages}"]
       @boards = current_user.boards.all
-      render 'index'
+      render :index
     end
   end
 
@@ -23,8 +22,13 @@ class BoardsController < ApplicationController
   end
 
   def update
-    #TODO
-    redirect_to boards_path
+    @board.assign_attributes board_params
+    if @board.valid?
+      @board.save
+      redirect_to boards_path
+    else
+      render :edit, action: "/boards/#{@board.id}"
+    end
   end
 
   def destroy

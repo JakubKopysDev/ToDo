@@ -10,5 +10,6 @@ Rails.application.routes.draw do
   end
 
   resources :boards
+  match 'boards/:id/edit' => 'boards#update', via: [:put, :patch], as: :put_board
 
 end
